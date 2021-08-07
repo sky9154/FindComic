@@ -1,6 +1,9 @@
 html,
 body {
-    width: 300px;
-    min-height: 200px;
-    margin: 0;
+    width: 350px;
 }
+.command{
+    height:149px;
+    overflow: auto;
+}
+.element::-webkit-scrollbar { width: 0 !important }
