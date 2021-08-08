@@ -4,7 +4,6 @@
     "name": "漫畫搜尋工具",
     "description": "",
     "version": "1.0",
-  
     "browser_action": {
         "default_icon": {
         "16" : "images/icons/icon_16.png",
@@ -15,13 +14,18 @@
         "default_popup": "popup.html"
     },
     "permissions": [
-      "activeTab",
-      "https://ajax.googleapis.com/"
+        "contextMenus",
+        "activeTab",
+        "https://ajax.googleapis.com/"
     ],
     "icons": {
         "16" : "images/icons/icon_16.png",
         "32" : "images/icons/icon_32.png",
         "64" : "images/icons/icon_64.png",
         "128" : "images/icons/icon_128.png"
-    }
+    },
+    "background": {  
+        "scripts": ["./js/menu.js"],  
+        "persistent": true
+    }  
 }
