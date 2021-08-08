@@ -33,9 +33,6 @@
     });
 })();
 
-let input = document.getElementById("input");
-let submit = document.getElementById("submit");
-
 // 判斷輸入是否為數字
 function Check(val) {
     if (parseFloat(val).toString() == "NaN") {
@@ -44,7 +41,10 @@ function Check(val) {
         return true;
     }
 }
+
 // 根據輸入跳轉到相應的網頁
+let input = document.getElementById("input");          // 輸入框
+let submit = document.getElementById("submit");     // 送出按鈕
 function Find () {
     let str = "";
     let inputValue = input.value;
@@ -87,8 +87,7 @@ function Find () {
                 window.open("https://nhentai.net/search/?q=" + str);
                 break;
         }
-        
     }
 }
-
+// 點擊送出按鈕
 submit.addEventListener("click", Find);

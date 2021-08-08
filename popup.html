@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>漫畫搜尋工具</title>
+    <link rel="icon" type="image/x-icon" href="https://kiriqua.com/images/logo.png" />
+    <link rel="shortcut icon" href="https://kiriqua.com/images/logo.png" type="image/x-icon"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/popup.css">
 </head>
@@ -12,7 +14,8 @@
 <div class="container-fluid">
     <form>
         <div class="mt-3">
-            <input type="text" id="input" class="form-control" placeholder="輸入關鍵字或是數字"  autocomplete="off"/>
+            <input type="text" id="input" class="form-control" placeholder="輸入關鍵字或者數字" autocomplete="off"/>
+            <!-- autocomplete="off" 不要顯示輸入紀錄 -->
         </div>
         <div class="mt-3">
             <button id="submit" class="btn btn-primary">送出</button>    
@@ -22,6 +25,7 @@
         <div class="alert alert-primary">
             指令要加前綴<strong>" . "</strong> 如：.Random
         </div>
+        <!-- 指令集 -->
         <div class="command element">
             <table class="table table-striped">
                 <thead>

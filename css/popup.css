@@ -1,9 +1,14 @@
+/* 固定整體寬度 */
 html,
 body {
     width: 350px;
 }
+/* 改為可滾動 */
 .command{
     height:149px;
     overflow: auto;
 }
-.element::-webkit-scrollbar { width: 0 !important }
+/* 隱藏滾動條 */
+.element::-webkit-scrollbar { 
+    width: 0 !important 
+}
