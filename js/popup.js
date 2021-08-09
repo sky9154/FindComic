@@ -34,7 +34,7 @@
 })();
 
 // 判斷輸入是否為數字
-function Check(val) {
+Check = val => {
     if (parseFloat(val).toString() == "NaN") {
         return false;
     } else {
@@ -42,50 +42,39 @@ function Check(val) {
     }
 }
 
-// 根據輸入跳轉到相應的網頁
 let input = document.getElementById("input");          // 輸入框
 let submit = document.getElementById("submit");     // 送出按鈕
-function Find () {
-    let str = "";
-    let inputValue = input.value;
-    str = inputValue;
+
+// 根據輸入跳轉到相應的網頁
+Find = () => {
+    let str = input.value;
+    const Random_C = [".隨機", ".Random", ".random", ".?"];
+    const New_C = [".最新", ".New", ".new", ".n"];
+    const Day_C = [".今日", ".Day", ".day", ".d"];
+    const Week_C = [".本週", ".Week", ".week", ".w"];
+    const All_C = [".全期間", ".All", ".all", ".a"];
+
     if (Check(str)){
         window.open("https://nhentai.net/g/" + str + "/");
-    }else{
-        switch (str) {
-            case ".隨機":
-            case ".Random":
-            case ".random":
-            case ".?":
-                window.open("https://nhentai.net/g/" + Math.floor(Math.random() * (99999)) + 1 + "/");
-                break;
-            case ".最新":
-            case ".New":
-            case ".new":
-            case ".n":
-                window.open("https://nhentai.net/language/chinese/");
-                break;
-            case ".今日":
-            case ".Day":
-            case ".day":
-            case ".d":
-                window.open("https://nhentai.net/language/chinese/popular-today");
-                break;
-            case ".本週":
-            case ".Week":
-            case ".week":
-            case ".w":
-                window.open("https://nhentai.net/language/chinese/popular-week");
-                break;
-            case ".全期間":
-            case ".All":
-            case ".all":
-            case ".a":
-                window.open("https://nhentai.net/language/chinese/popular");
-                break;
-            default:
-                window.open("https://nhentai.net/search/?q=" + str);
-                break;
+    } 
+    else {
+        if (Random_C.indexOf(str) != -1) {
+            window.open("https://nhentai.net/g/" + Math.floor(Math.random() * (36900)) + 1 + "/");
+        } 
+        else if (New_C.indexOf(str) != -1) {
+            window.open("https://nhentai.net/language/chinese/");
+        } 
+        else if (Day_C.indexOf(str) != -1) {
+            window.open("https://nhentai.net/language/chinese/popular-today");
+        } 
+        else if (Week_C.indexOf(str) != -1) {
+            window.open("https://nhentai.net/language/chinese/popular-week");
+        } 
+        else if (All_C.indexOf(str) != -1) {
+            window.open("https://nhentai.net/language/chinese/popular");
+        } 
+        else {
+            window.open("https://nhentai.net/search/?q=" + str);
         }
     }
 }
