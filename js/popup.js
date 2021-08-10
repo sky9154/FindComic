@@ -47,7 +47,7 @@ let submit = document.getElementById("submit");     // 送出按鈕
 
 // 根據輸入跳轉到相應的網頁
 Find = () => {
-    let str = input.value;
+    let str = input.value, url = "";
     const Random_C = [".隨機", ".Random", ".random", ".?"];
     const New_C = [".最新", ".New", ".new", ".n"];
     const Day_C = [".今日", ".Day", ".day", ".d"];
@@ -55,28 +55,29 @@ Find = () => {
     const All_C = [".全期間", ".All", ".all", ".a"];
 
     if (Check(str)){
-        window.open("https://nhentai.net/g/" + str + "/");
+        url = "https://nhentai.net/g/" + str + "/";
     } 
     else {
         if (Random_C.indexOf(str) != -1) {
-            window.open("https://nhentai.net/g/" + Math.floor(Math.random() * (36900)) + 1 + "/");
+            url = "https://nhentai.net/g/" + str + "/";
         } 
         else if (New_C.indexOf(str) != -1) {
-            window.open("https://nhentai.net/language/chinese/");
+            url = "https://nhentai.net/language/chinese/";
         } 
         else if (Day_C.indexOf(str) != -1) {
-            window.open("https://nhentai.net/language/chinese/popular-today");
-        } 
+            url = "https://nhentai.net/language/chinese/popular-today";
+        }
         else if (Week_C.indexOf(str) != -1) {
-            window.open("https://nhentai.net/language/chinese/popular-week");
+            url = "https://nhentai.net/language/chinese/popular-week";
         } 
         else if (All_C.indexOf(str) != -1) {
-            window.open("https://nhentai.net/language/chinese/popular");
+            url = "https://nhentai.net/language/chinese/popular";
         } 
         else {
-            window.open("https://nhentai.net/search/?q=" + str);
+            url = "https://nhentai.net/search/?q=" + str;
         }
     }
+    chrome.windows.create({"url": url, "incognito" : true, "width" : 720, "left" : 10});
 }
 // 點擊送出按鈕
 submit.addEventListener("click", Find);

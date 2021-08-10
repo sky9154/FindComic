@@ -1,4 +1,3 @@
-
 // "ID是：" + info.menuItemId + "\n" +  
 // "現在的網址是：" + info.pageUrl + "\n" +  
 // "選取的文字是：" + (info.selectionText ? info.selectionText : "") + "\n" +  
@@ -23,19 +22,20 @@
 
 function createMenus() {  
     // 創建選單
-    let parent = chrome.contextMenus.create({  
+    chrome.contextMenus.create({  
         "title": "搜尋漫畫",  
         "contexts": ['all'],      
         "onclick": function(info,tab){
             let str = info.selectionText ? info.selectionText : "";
-            if (Check(str)){
-                window.open("https://nhentai.net/g/" + str + "/");
-            }else{
-                window.open("https://nhentai.net/search/?q=" + str);
+            if (str != ""){
+                if (Check(str)){
+                    chrome.windows.create({"url": "https://nhentai.net/g/" + str + "/" , "incognito": true,"width":720,"left":10});
+                }else{
+                    chrome.windows.create({"url": "https://nhentai.net/search/?q=" + str , "incognito": true,"width":720,"left":10});
+                }
             }
         },
     });  
-    console.log(parent);  
 }
 // 判斷輸入是否為數字
 function Check(val) {
