@@ -2,7 +2,7 @@
     "manifest_version": 2,
   
     "name": "漫畫搜尋工具",
-    "description": "",
+    "description": "Starburst Stream !",
     "version": "1.0",
     "browser_action": {
         "default_icon": {
@@ -15,8 +15,7 @@
     },
     "permissions": [
         "contextMenus",
-        "activeTab",
-        "https://ajax.googleapis.com/"
+        "tabs"
     ],
     "icons": {
         "16" : "images/icons/icon_16.png",
