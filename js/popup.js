@@ -1,5 +1,5 @@
 // 產生指令集
-(function () {
+(() => {
     const Command = [
         {
             name:"隨機 | Random",
@@ -23,7 +23,7 @@
         },
     ];
     const Commands = document.getElementById("Command");
-    Command.forEach((kirito) => {
+    Command.forEach( kirito => {
         Commands.innerHTML += `
         <tr>
             <td>${kirito.name}</td>
