@@ -7,7 +7,7 @@
             if (str != "") {
                 if (Check(str)) {
                     chrome.windows.create({
-                        "url": "https://nhentai.net/g/" + str + "/1/", 
+                        "url": "https://nhentai.net/g/" + str + "/", 
                         "incognito": true,
                         "width": 720,
                         "left": 10
