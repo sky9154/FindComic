@@ -1,18 +1,25 @@
+*{
+    background-color: #0d0d0d;
+}
+
 /* 固定整體寬度 */
 html,
 body {
     width: 310px;
     font-family: 'Roboto Condensed', 'Noto Sans TC', sans-serif;
 }
+
 /* 鼠標設為箭頭 */
 .text-body {
     cursor: default;
 }
+
 /* 改為可滾動 */
 .command {
     height:160px;
     overflow: auto;
 }
+
 /* 隱藏滾動條 */
 .element::-webkit-scrollbar { 
     width: 0 !important 
