@@ -1,37 +1,9 @@
-// 產生指令集
-(() => {
-    const Command = [
-        {
-            name:"隨機 | Random",
-            Description:"隨機產生漫畫"
-        },
-        {
-            name:"最新 | New",
-            Description:"最新漫畫"
-        },
-        {
-            name:"今日 | Day",
-            Description:"今日人氣排行"
-        },
-        {
-            name:"本週 | Week",
-            Description:"本週人氣排行"
-        },
-        {
-            name:"全期間 | All",
-            Description:"最高人氣排行"
-        },
-    ];
-    const Commands = document.getElementById("Command");
-    Command.forEach( kirito => {
-        Commands.innerHTML += `
-        <tr>
-            <td>${kirito.name}</td>
-            <td>${kirito.Description}</td>
-        </tr>
-    `;
-    });
-})();
+let input = document.getElementById("input");          // 輸入框
+let submit = document.getElementById("submit");     // 送出按鈕
+
+// 各個按鍵
+let Day = document.getElementById("day"), Week = document.getElementById("week"), All = document.getElementById("all");
+let New = document.getElementById("new"), Random = document.getElementById("random");
 
 // 判斷輸入是否為數字
 Check = val => {
@@ -42,42 +14,22 @@ Check = val => {
     }
 }
 
-let input = document.getElementById("input");          // 輸入框
-let submit = document.getElementById("submit");     // 送出按鈕
-
 // 根據輸入跳轉到相應的網頁
-Find = () => {
-    let str = input.value, url = "";
-    const Random_C = [".隨機", ".Random", ".random", ".?"];
-    const New_C = [".最新", ".New", ".new", ".n"];
-    const Day_C = [".今日", ".Day", ".day", ".d"];
-    const Week_C = [".本週", ".Week", ".week", ".w"];
-    const All_C = [".全期間", ".All", ".all", ".a"];
+go_url = url => chrome.windows.create ({"url": url, "incognito" : true, "width" : 720, "left" : 10});
 
-    if (Check(str)){
-        url = "https://nhentai.net/g/" + str + "/";
-    } 
-    else {
-        if (Random_C.indexOf(str) != -1) {
-            url = "https://nhentai.net/g/" + str + "/";
-        } 
-        else if (New_C.indexOf(str) != -1) {
-            url = "https://nhentai.net/language/chinese/";
-        } 
-        else if (Day_C.indexOf(str) != -1) {
-            url = "https://nhentai.net/language/chinese/popular-today";
-        }
-        else if (Week_C.indexOf(str) != -1) {
-            url = "https://nhentai.net/language/chinese/popular-week";
-        } 
-        else if (All_C.indexOf(str) != -1) {
-            url = "https://nhentai.net/language/chinese/popular";
-        } 
-        else {
-            url = "https://nhentai.net/search/?q=" + str;
-        }
-    }
-    chrome.windows.create({"url": url, "incognito" : true, "width" : 720, "left" : 10});
+Find = str => {
+    if (Check(str)) url = "https://nhentai.net/g/" + str + "/";
+    else url = "https://nhentai.net/search/?q=" + str;
+    go_url(url);
 }
-// 點擊送出按鈕
-submit.addEventListener("click", Find);
+
+// 跳轉特定頁面
+comment = link => go_url(("https://nhentai.net/language/chinese/" + link));
+
+// 按鈕點擊
+submit.addEventListener("click", () => Find(input.value));
+Day.addEventListener("click", () => comment(Day.value));
+Week.addEventListener("click", () => comment(Week.value));
+All.addEventListener("click", () => comment(All.value));
+New.addEventListener("click", () => comment(New.value));
+Random.addEventListener("click", () => Find(Math.floor(Math.random() * 36900) + 1));
