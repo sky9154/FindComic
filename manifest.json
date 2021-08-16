@@ -1,27 +1,24 @@
 {
-    "manifest_version": 2,
-  
     "name": "漫畫搜尋工具",
     "description": "Starburst Stream !",
-    "version": "1.0",
+    "author": "oF",
+    "version": "1.5",
+    "manifest_version": 2,
+    "permissions": ["contextMenus"],
     "browser_action": {
         "default_icon": {
-        "16" : "images/icons/icon_16.png",
-        "32" : "images/icons/icon_32.png",
-        "64" : "images/icons/icon_64.png",
-        "128" : "images/icons/icon_128.png"
+            "16" : "images/logos/logo_128.png",
+            "32" : "images/icons/icon2_32.png",
+            "64" : "images/icons/icon_64.png",
+            "128" : "images/logos/logo_128.png"
         },
         "default_popup": "popup.html"
     },
-    "permissions": [
-        "contextMenus",
-        "tabs"
-    ],
     "icons": {
-        "16" : "images/icons/icon_16.png",
-        "32" : "images/icons/icon_32.png",
-        "64" : "images/icons/icon_64.png",
-        "128" : "images/icons/icon_128.png"
+        "16" : "images/logos/logo_128.png",
+        "32" : "images/icons/icon1_32.png",
+        "64" : "images/logos/logo_64.png",
+        "128" : "images/logos/logo_128.png"
     },
     "background": {  
         "scripts": ["./js/menu.js"],  
